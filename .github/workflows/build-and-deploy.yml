@@ -10,7 +10,7 @@ env:
   DOTNET_VERSION: '5.0'           
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
