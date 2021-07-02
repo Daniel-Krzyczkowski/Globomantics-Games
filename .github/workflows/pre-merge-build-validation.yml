@@ -1,4 +1,4 @@
-name: Build and deploy web game
+name: Build web game
 
 on:
   pull_request:
