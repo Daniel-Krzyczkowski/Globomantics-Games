@@ -34,6 +34,11 @@ namespace Globomantics.CloudGame.Service
                     cmd.ExecuteNonQuery();
                     await conn.CloseAsync();
                 }
+
+            else
+            {
+                // Log error here....
+            }
         }
     }
 }
