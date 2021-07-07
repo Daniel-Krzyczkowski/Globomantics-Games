@@ -34,7 +34,7 @@ namespace Globomantics.CloudGame.Service
             }
             catch (NullReferenceException ex)
             {
-                Console.WriteLine("Connection string is null");
+                
             }
         }
     }
