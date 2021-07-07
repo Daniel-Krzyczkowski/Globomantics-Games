@@ -1,5 +1,0 @@
-name: "Security and Quality"
-
-queries:
-  - name: Security and Quality
-    uses: security-and-quality
