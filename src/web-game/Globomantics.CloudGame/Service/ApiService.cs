@@ -21,8 +21,6 @@ namespace Globomantics.CloudGame.Service
 
         public async Task SaveUserScoreAsync(int score)
         {
-            //TODO: Complete this functionality once database is ready
-
                 var connectString = _configuration["AzureSQL:ConnectionString"];
                 if(connectString != null)
                 {
