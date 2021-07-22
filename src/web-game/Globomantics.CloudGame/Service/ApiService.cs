@@ -21,17 +21,21 @@ namespace Globomantics.CloudGame.Service
 
         public async Task SaveUserScoreAsync(int score)
         {
+            try
+            {
                 var connectString = _configuration["AzureSQL:ConnectionString"];
-                if(connectString != null)
-                {
-                    SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder(connectString);
-                    var conn = new SqlConnection(builder.ConnectionString);
-                    string insertString = @"INSERT INTO Score(Score) VALUES (@UserScore)";
-                    SqlCommand cmd = new SqlCommand(insertString, conn);
-                    cmd.Parameters.AddWithValue("@UserScore", score);
-                    cmd.ExecuteNonQuery();
-                    await conn.CloseAsync();
-                }
+                SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder(connectString);
+                var conn = new SqlConnection(builder.ConnectionString);
+                string insertString = @"INSERT INTO Score(Score) VALUES (@UserScore)";
+                SqlCommand cmd = new SqlCommand(insertString, conn);
+                cmd.Parameters.AddWithValue("@UserScore", score);
+                cmd.ExecuteNonQuery();
+                await conn.CloseAsync();
+            }
+            catch (NullReferenceException ex)
+            {
+                Console.WriteLine("Connection string is null");
+            }
         }
     }
 }
